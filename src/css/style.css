@@ -1,10 +1,16 @@
+@font-face {
+  font-family: yekan;
+  src: url("../fonts/Yekan.ttf");
+}
+html {
+  font-size: 16px;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "outfit";
-  scrollbar-width: auto;
-  scrollbar-color: #8f54a0 #ffffff00;
+  font-family: "yekan";
+  color: white;
 }
 
 body {
@@ -14,8 +20,7 @@ body {
 }
 
 .container {
-  border: 1px solid red;
-  height: 10rem;
+  /* border: 1px solid red; */
   margin: 0 auto;
   transition: all 0.18s ease-in-out;
   padding: 0 1rem;
@@ -25,11 +30,152 @@ body {
   gap: 10%;
 }
 
+/* ---------- Header ---------- */
+
+header {
+  background-color: #262745;
+  background-image: url("../image/bg-landing-nine.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  padding-top: 2rem;
+}
+
+/* ---------- Navbar ---------- */
+nav {
+  /* border: 1px solid red; */
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-menu {
+  display: none;
+}
+.nav-menu ul {
+  /* border: 1px solid red; */
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.1rem;
+}
+
+.nav-logo {
+}
+.nav-logo-img {
+  width: 10rem;
+  height: auto;
+}
+.nav-logo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  gap: 2rem;
+}
+.search-login {
+  width: 10rem;
+  border-radius: 1.2rem;
+  background-color: white;
+  height: 2.5rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  display: none;
+}
+.search-login span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.search-login-s {
+  padding-left: 1rem;
+}
+.search-login-s:hover ion-icon {
+  cursor: pointer;
+  scale: 1.1;
+}
+.search-login-s ion-icon {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.12s ease-in-out;
+}
+.search-login-l {
+  border-radius: inherit;
+  height: 100%;
+  padding: 0 1rem;
+  background-color: #eb2856;
+  color: white;
+  padding-left: 1.8rem;
+}
+.search-login-l:hover {
+  cursor: pointer;
+  background-color: #f1315e;
+}
+
+.favorite,
+.cart {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.favorite a,
+.cart a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.favorite {
+  display: none;
+}
+.cart {
+  position: relative;
+}
+.cart::after {
+  position: absolute;
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: white;
+  border-radius: 50%;
+  top: -0.5rem;
+  right: -0.5rem;
+}
+
+.nav-menu-ham {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
 /* ---------- Responsive ---------- */
 
 @media (min-width: 576px) {
   .container {
     width: 540px;
+  }
+  .search-login {
+    display: flex;
   }
 }
 
@@ -37,17 +183,32 @@ body {
   .container {
     width: 720px;
   }
+  .favorite {
+    display: block;
+  }
 }
 
 @media (min-width: 992px) {
   .container {
     width: 960px;
   }
+  .nav-logo {
+    margin-right: 10rem;
+  }
 }
 
 @media (min-width: 1200px) {
   .container {
     width: 1140px;
+  }
+  .nav-menu {
+    display: block;
+  }
+  .nav-menu-ham {
+    display: none;
+  }
+  .nav-logo {
+    margin-right: -9rem;
   }
 }
 @media (min-width: 1400px) {
